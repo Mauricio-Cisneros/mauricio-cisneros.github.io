@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1 - Detailed View</title>
+    <style>
+        body {
+            background-color: #f0f0f0;
+            color: #3a7d44;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .slideshow-container {
+            display: flex;
+            align-items: center;
+            max-width: 800px;
+            position: relative;
+            margin-top: 20px;
+        }
+        .slide {
+            display: none;
+            width: 100%;
+        }
+        .slide img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .description-container {
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            background-color: #e6e6e6;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .description {
+            display: none;
+        }
+        .carousel {
+            display: flex;
+            gap: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .carousel img {
+            width: 80px;
+            cursor: pointer;
+            opacity: 0.5;
+        }
+        .carousel img.active {
+            opacity: 1;
+            border: 2px solid #3a7d44;
+            border-radius: 4px;
+        }
+        .active {
+            display: block;
+        }
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            gap: 10px;
+        }
+        .nav-buttons button {
+            background-color: #3a7d44;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Project 1 - Detailed View</h1>
+
+    <div class="slideshow-container">
+        <div class="slide active">
+            <img src="image1.jpg" alt="Image 1">
+        </div>
+        <div class="slide">
+            <img src="image2.jpg" alt="Image 2">
+        </div>
+        <div class="slide">
+            <img src="image3.jpg" alt="Image 3">
+        </div>
+    </div>
+
+    <div class="carousel">
+        <img src="image1.jpg" alt="Preview 1" onclick="goToSlide(0)" class="active">
+        <img src="image2.jpg" alt="Preview 2" onclick="goToSlide(1)">
+        <img src="image3.jpg" alt="Preview 3" onclick="goToSlide(2)">
+    </div>
+
+    <div class="description-container">
+        <div class="description active">Description for Image 1.</div>
+        <div class="description">Description for Image 2.</div>
+        <div class="description">Description for Image 3.</div>
+    </div>
+
+    <div class="nav-buttons">
+        <button onclick="changeSlide(-1)">Previous</button>
+        <button onclick="changeSlide(1)">Next</button>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            const descriptions = document.querySelectorAll('.description');
+            const previews = document.querySelectorAll('.carousel img');
+
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+                descriptions[i].classList.toggle('active', i === index);
+                previews[i].classList.toggle('active', i === index);
+            });
+        }
+
+        function changeSlide(direction) {
+            const slides = document.querySelectorAll('.slide');
+            slideIndex = (slideIndex + direction + slides.length) % slides.length;
+            showSlide(slideIndex);
+        }
+
+        function goToSlide(index) {
+            slideIndex = index;
+            showSlide(slideIndex);
+        }
+    </script>
+</body>
+</html>
