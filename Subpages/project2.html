@@ -68,6 +68,10 @@
             margin-top: 10px;
             gap: 10px;
         }
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
         .nav-buttons button, .nav-buttons a {
             background-color: #3a7d44;
             color: #fff;
@@ -77,7 +81,6 @@
             cursor: pointer;
             text-decoration: none;
             font-weight: bold;
-        }
     </style>
 </head>
 <body>
@@ -108,8 +111,10 @@
     </div>
 
     <div class="nav-buttons">
-        <button onclick="changeSlide(-1)">Previous</button>
-        <button onclick="changeSlide(1)">Next</button>
+        <div class="button-container">
+            <button onclick="changeSlide(-1)">Previous</button>
+            <button onclick="changeSlide(1)">Next</button>
+        </div>
         <a href="../index.html">Back to Home</a>
     </div>
 
