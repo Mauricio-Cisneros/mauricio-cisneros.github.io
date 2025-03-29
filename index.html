@@ -50,13 +50,14 @@
     <h1>Welcome to Mauricio's Projects!</h1>
 
     <div class="nav-links">
-        <a href="#projects">Projects</a>
-        <a href="#profile">Profile</a>
-        <a href="#contact">Contact</a>
+        <a href="#" onclick="showSection('projects')">Projects</a>
+        <a href="#" onclick="showSection('profile')">Profile</a>
+        <a href="#" onclick="showSection('contact')">Contact</a>
     </div>
 
+   <div id="projects" class="content active">
+    <h2>Projects</h2>
     <p>Hello! I'm a Venezuela-born Computer Engineering Student. Here are my projects!. Click on each to explore further.</p>
-
     <div class="project-gallery">
         <div class="project">
             <a href="Subpages/project1.html">
@@ -97,7 +98,19 @@
             <p>This website!</p>
             
         </div>
-        
+    </div>
+   </div>
+    <script>
+        function showSection(sectionId) {
+            document.querySelectorAll('.content').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
+
     </div>
 </body>
 </html>
