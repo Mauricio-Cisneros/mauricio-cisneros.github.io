@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hand Tracked IOT - Detailed View</title>
+    <title>Hand Tracked IOT Control - Detailed View</title>
     <style>
         body {
             background-color: #f0f0f0;
@@ -63,22 +63,25 @@
         }
         .nav-buttons {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            align-items: center;
             margin-top: 10px;
             gap: 10px;
         }
-        .nav-buttons button {
+        .nav-buttons button, .nav-buttons a {
             background-color: #3a7d44;
             color: #fff;
             border: none;
             padding: 10px 20px;
             border-radius: 4px;
             cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>Hand Tracking IOT</h1>
+    <h1>Hand Tracked IOT Control</h1>
 
     <div class="slideshow-container">
         <div class="slide active">
@@ -107,9 +110,8 @@
     <div class="nav-buttons">
         <button onclick="changeSlide(-1)">Previous</button>
         <button onclick="changeSlide(1)">Next</button>
+        <a href="../index.html">Back to Home</a>
     </div>
-
-    <a href="../index.html" class="back-button">Back to Home</a>
 
     <script>
         let slideIndex = 0;
@@ -139,3 +141,4 @@
     </script>
 </body>
 </html>
+
